@@ -46,7 +46,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      z-index: -1; /* Fica atrás de tudo */
+      z-index: -1;
       pointer-events: none;
     }
 
@@ -229,7 +229,7 @@
   <nav class="navbar navbar-expand-lg sticky-top shadow-lg" data-aos="fade-down" data-aos-duration="800">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-3 brand-font fw-bold text-white" href="#">
-        <img src="./imagem/logo.jpg" alt="Logo" width="42" height="42" class="rounded-circle border border-warning shadow">
+        <img src="./logo.jpg" alt="Logo" width="42" height="42" class="rounded-circle border border-warning shadow">
         PRISTON<span class="text-gradient">FORGE</span>
       </a>
       <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -258,7 +258,7 @@
   <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container" data-aos="zoom-in" data-aos-duration="1200">
-      <img src="./imagem/logo.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
+      <img src="./logo.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
       <div class="mb-4" data-aos="fade-up" data-aos-delay="300">
         <span class="badge rounded-pill bg-dark text-warning border border-warning px-4 py-2 fs-6 shadow-lg">
           <i class="bi bi-shield-check me-2"></i> Sincronizado com a Wiki Oficial BPT
@@ -267,7 +267,7 @@
       <h1 class="display-2 fw-bold mb-3 hero-title">PRISTON<span class="text-gradient">FORGE</span></h1>
       <div class="rpg-divider"></div>
       <p class="lead text-light mx-auto mb-5" style="max-width: 750px; font-weight: 300; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-        O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, espie adversários e domine o tempo exato de todos os Bosses com precisão cirúrgica.
+        O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, explore espólios épicos e domine o tempo exato de todos os Bosses.
       </p>
       
       <div class="d-flex justify-content-center gap-4 flex-wrap mb-5" data-aos="fade-up" data-aos-delay="600">
@@ -275,7 +275,7 @@
           <i class="bi bi-discord me-2 fs-5"></i> Convocar para o Discord
         </a>
         <a href="#manual" class="btn btn-forge btn-lg px-5 py-3 rounded-pill">
-          <i class="bi bi-book-half me-2 fs-5"></i> Ler o Manual Antigo
+          <i class="bi bi-book-half me-2 fs-5"></i> Ler o Manual
         </a>
       </div>
 
@@ -299,42 +299,62 @@
     </div>
   </section>
 
-  <!-- Seção de Recursos -->
+  <!-- Seção de Recursos (Expandida para 6 Painéis) -->
   <section id="recursos" class="py-5" style="position: relative; z-index: 2;">
     <div class="container py-5">
       <div class="text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold fs-1">FORJADO PARA A <span class="text-gradient">ELITE</span></h2>
         <div class="rpg-divider"></div>
-        <p class="text-secondary fs-5">Arquitetura em nuvem com MongoDB e proteção inteligente contra bloqueios.</p>
+        <p class="text-secondary fs-5">Arquitetura em nuvem, base de dados robusta e proteção inteligente.</p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <!-- Card 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="glass-card">
             <div class="feature-icon"><i class="bi bi-crosshair"></i></div>
             <h4 class="fw-bold text-white mb-3">Radar de Bosses</h4>
             <p class="text-secondary small mb-0">Monitoramento cirúrgico dos minutos dinâmicos (Alfa a Zeta) cruzados com a tabela oficial de Bosses da Zenit.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <!-- Card 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="glass-card">
             <div class="feature-icon"><i class="bi bi-person-vcard"></i></div>
             <h4 class="fw-bold text-white mb-3">Carteira Pessoal</h4>
             <p class="text-secondary small mb-0">Vincule seu personagem uma única vez e exiba seu Nível, Classe, Rank Geral, Tier e barra de progresso visual.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <!-- Card 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="glass-card">
             <div class="feature-icon"><i class="bi bi-trophy"></i></div>
             <h4 class="fw-bold text-white mb-3">Hall da Fama</h4>
             <p class="text-secondary small mb-0">Crie competitividade saudável! Ranking interno automático com o Top 10 dos membros mais fortes do clã.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+        <!-- Card 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="glass-card">
             <div class="feature-icon"><i class="bi bi-bell-fill"></i></div>
             <h4 class="fw-bold text-white mb-3">Sinos da Morte</h4>
             <p class="text-secondary small mb-0">Ative um alarme privado para o seu Boss favorito e receba uma mensagem direta (DM) exatos 10 minutos antes.</p>
+          </div>
+        </div>
+        <!-- Card 5 (NOVO: Drops) -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="glass-card">
+            <div class="feature-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+            <h4 class="fw-bold text-white mb-3">Enciclopédia de Drops</h4>
+            <p class="text-secondary small mb-0">Base de dados completa (Endgame) com itens Abissais, Verthex e espólios de Bosses, pesquisável direto no chat.</p>
+          </div>
+        </div>
+        <!-- Card 6 (NOVO: Segurança) -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="glass-card">
+            <div class="feature-icon"><i class="bi bi-shield-lock-fill"></i></div>
+            <h4 class="fw-bold text-white mb-3">Proteção Anti-Ban</h4>
+            <p class="text-secondary small mb-0">Arquitetura blindada com bypass em nuvem e leituras locais na base MongoDB para evitar bloqueios da publicadora.</p>
           </div>
         </div>
       </div>
@@ -389,7 +409,7 @@
         </div>
       </div>
 
-      <!-- Categoria 2 -->
+      <!-- Categoria 2 (Modificada com /drop) -->
       <div class="mb-5" data-aos="fade-up">
         <h3 class="mb-4 d-flex align-items-center gap-3" style="color: var(--forge-primary); text-shadow: 0 0 15px rgba(255,69,0,0.3);">
           <i class="bi bi-fire fs-2"></i> 2. CAÇADA E BOSSES
@@ -409,9 +429,18 @@
           <div class="mb-3"><span class="cmd-badge">/avisar</span> <span class="param-badge">boss: [Nome]</span></div>
           <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Configura um alarme DM furtivo para garantir que nunca mais perde um drop épico.</p>
         </div>
+
+        <div class="command-card border-warning" style="border-left: 4px solid var(--forge-primary);">
+          <div class="mb-3">
+            <span class="cmd-badge">/drop</span> 
+            <span class="param-badge">item: [Nome]</span> 
+            <span class="param-badge">monstro: [Nome]</span>
+          </div>
+          <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Consulta o bestiário e a enciclopédia de itens do Endgame com autocompletar inteligente.</p>
+        </div>
       </div>
 
-      <!-- Categoria 3 -->
+      <!-- Categoria 3 (Modificada com /configdrops) -->
       <div class="mb-5" data-aos="fade-up">
         <h3 class="mb-4 d-flex align-items-center gap-3 text-info" style="text-shadow: 0 0 15px rgba(0, 180, 216, 0.3);">
           <i class="bi bi-gear-wide-connected fs-2"></i> 3. ADMINISTRAÇÃO (Líderes)
@@ -419,12 +448,17 @@
 
         <div class="command-card admin-border">
           <div class="mb-3"><span class="cmd-badge text-info border-info bg-info bg-opacity-10">/config</span></div>
-          <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Lança as fundações. Configura o servidor principal, canal de auto-postagem e limpa a DB.</p>
+          <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Lança as fundações. Configura o servidor principal, canal de auto-postagem e sincroniza Bosses.</p>
         </div>
 
         <div class="command-card admin-border">
           <div class="mb-3"><span class="cmd-badge text-info border-info bg-info bg-opacity-10">/levelcap</span></div>
           <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Atualiza o limite de Nível Máximo (Level Cap) para recalibrar as barras de progresso do clã.</p>
+        </div>
+
+        <div class="command-card admin-border">
+          <div class="mb-3"><span class="cmd-badge text-info border-info bg-info bg-opacity-10">/configdrops</span></div>
+          <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Popula a base de dados interna com a enciclopédia oficial de Itens e Monstros do BPT.</p>
         </div>
 
         <div class="command-card admin-border">
@@ -556,10 +590,8 @@
   
   <!-- Inicialização do AOS e Motor de Partículas -->
   <script>
-    // Iniciar Animações de Scroll
     AOS.init({ once: true, offset: 50 });
 
-    // Motor da "Forja Viva" (Partículas)
     const canvas = document.getElementById('forge-particles');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -572,14 +604,13 @@
             this.y = canvas.height + Math.random() * 100;
             this.size = Math.random() * 3 + 1;
             this.speedX = Math.random() * 1.5 - 0.75;
-            this.speedY = Math.random() * -2 - 1; // Sobe
-            // Cores entre Laranja e Dourado
+            this.speedY = Math.random() * -2 - 1; 
             this.color = `rgba(255, ${Math.random() * 100 + 100}, 0, ${Math.random() * 0.7 + 0.1})`;
         }
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
-            if (this.size > 0.1) this.size -= 0.015; // Diminui tamanho
+            if (this.size > 0.1) this.size -= 0.015; 
             if (this.y < 0 || this.size <= 0.1) {
                 this.y = canvas.height + 50;
                 this.x = Math.random() * canvas.width;
@@ -596,7 +627,7 @@
     
     function init() {
         particlesArray = [];
-        const numberOfParticles = window.innerWidth < 768 ? 40 : 100; // Menos partículas no celular
+        const numberOfParticles = window.innerWidth < 768 ? 40 : 100; 
         for (let i = 0; i < numberOfParticles; i++) {
             particlesArray.push(new Particle());
         }
@@ -614,7 +645,6 @@
     init();
     animate();
     
-    // Ajustar partículas se a tela mudar de tamanho
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
