@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="PristonForge Logo" width="140" height="140" style="border-radius: 50%; border: 3px solid #FF4500;">
+  <img src="./imagem/logo.jpg" alt="PristonForge Logo" width="140" height="140">
 
   # 🛡️ PristonForge
 
@@ -13,6 +13,7 @@
   <br>
 
   [![Adicionar ao Discord](https://img.shields.io/badge/Adicionar_ao_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands)
+  [![Acessar Manual Online](https://img.shields.io/badge/Acessar_Site_&_Manual-FF4500?style=for-the-badge&logo=googlechrome&logoColor=white)](https://fromacedo.github.io/pristonforge/)
 </div>
 
 ---
@@ -134,6 +135,7 @@ O núcleo do **PristonForge** conta com uma base blindada e sincronizada com a W
  ┣ 📜 index.js        # Núcleo do bot, comandos Slash, eventos, botões e conexão MongoDB
  ┣ 📜 scraper.js      # Motor Puppeteer Stealth com fila de requisições e base oficial de Bosses
  ┣ 📜 index.html      # Landing Page e Manual Oficial (Bootstrap 5) para GitHub Pages
+ ┣ 🖼️ logo.jpg        # Avatar oficial do projeto
  ┣ 📜 package.json    # Gerenciador de dependências do Node.js
  ┣ 📜 .env            # Variáveis sensíveis (não enviar para o GitHub!)
  ┗ 📜 README.md       # Documentação oficial do repositório
