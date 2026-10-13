@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PristonForge | O Assistente de Elite para Priston Tale</title>
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Google Fonts (Cinzel para títulos épicos e Inter para leitura limpa) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forge-primary: #FF4500;
+      --forge-secondary: #FF8C00;
+      --forge-gold: #FFD700;
+      --forge-bg: #0b0c10;
+      --forge-card: #14171f;
+      --forge-border: #282c37;
+    }
+
+    body {
+      background-color: var(--forge-bg);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(11, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 100px 0 80px;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 69, 0, 0.18), transparent 60%),
+                  linear-gradient(180deg, #0b0c10 0%, #12151e 100%);
+      border-bottom: 1px solid var(--forge-border);
+    }
+
+    .bot-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--forge-primary);
+      box-shadow: 0 0 35px rgba(255, 69, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .bot-avatar:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .text-gradient {
+      background: linear-gradient(90deg, #FF4500, #FFA500);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Botões Customizados */
+    .btn-forge {
+      background: linear-gradient(135deg, var(--forge-primary), #d63600);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(255, 69, 0, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-forge:hover {
+      background: linear-gradient(135deg, #ff571a, var(--forge-primary));
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 69, 0, 0.55);
+    }
+
+    /* Cards de Recursos */
+    .feature-card {
+      background: var(--forge-card);
+      border: 1px solid var(--forge-border);
+      border-radius: 12px;
+      padding: 28px;
+      height: 100%;
+      transition: all 0.25s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--forge-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: rgba(255, 69, 0, 0.12);
+      color: var(--forge-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    /* Bloco de Comandos (Estilo Discord Quote) */
+    .command-card {
+      background: var(--forge-card);
+      border: 1px solid var(--forge-border);
+      border-left: 4px solid var(--forge-primary);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: background 0.2s ease;
+    }
+
+    .command-card:hover {
+      background: #191d28;
+    }
+
+    .command-card.gold-border {
+      border-left-color: var(--forge-gold);
+    }
+
+    .command-card.admin-border {
+      border-left-color: #00b4d8;
+    }
+
+    .cmd-badge {
+      background-color: rgba(255, 69, 0, 0.15);
+      color: #ff6a33;
+      border: 1px solid rgba(255, 69, 0, 0.3);
+      font-family: monospace;
+      font-size: 1rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .param-badge {
+      background-color: #212631;
+      color: #cbd5e1;
+      font-family: monospace;
+      font-size: 0.85rem;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+
+    /* Dica de Ouro */
+    .golden-tip {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 69, 0, 0.08));
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    /* Simulação de Botão do Discord */
+    .discord-btn {
+      background-color: #5865F2;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: default;
+    }
+
+    .discord-btn-secondary {
+      background-color: #4f545c;
+    }
+
+    footer {
+      background-color: #07080a;
+      border-top: 1px solid var(--forge-border);
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de Navegação -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 brand-font fw-bold text-white" href="#">
+        <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="Logo" width="36" height="36" class="rounded-circle border border-danger">
+        PRISTON<span class="text-gradient">FORGE</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-3 align-items-center">
+          <li class="nav-item"><a class="nav-link text-light" href="#recursos">Recursos</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#manual">Manual de Comandos</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#bosses">Bosses Auditados</a></li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light btn-sm px-3" href="https://github.com/" target="_blank">
+              <i class="bi bi-github me-1"></i> GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Apresentação) -->
+  <section class="hero-section text-center">
+    <div class="container">
+      <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
+      <div class="mb-2">
+        <span class="badge rounded-pill text-bg-danger bg-opacity-25 text-warning border border-warning px-3 py-2">
+          <i class="bi bi-shield-check me-1"></i> Sincronizado com a Wiki Oficial BPT
+        </span>
+      </div>
+      <h1 class="display-4 fw-bold mb-3">PRISTON<span class="text-gradient">FORGE</span></h1>
+      <p class="lead text-secondary mx-auto mb-4" style="max-width: 680px;">
+        O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, espie adversários e domine o tempo exato de todos os Bosses com precisão cirúrgica.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="#manual" class="btn btn-forge">
+          <i class="bi bi-book-half me-2"></i>Ler Manual de Instruções
+        </a>
+        <a href="https://github.com/" target="_blank" class="btn btn-outline-secondary px-4 py-2 d-flex align-items-center">
+          <i class="bi bi-code-slash me-2"></i>Ver Repositório
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Recursos -->
+  <section id="recursos" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">FORJADO PARA A <span class="text-gradient">ELITE</span></h2>
+        <p class="text-secondary">Arquitetura em nuvem com MongoDB e proteção inteligente contra bloqueios.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-crosshair"></i></div>
+            <h5 class="fw-bold">Radar de Bosses</h5>
+            <p class="text-secondary small mb-0">
+              Monitoramento dos minutos dinâmicos (Alfa a Zeta) combinados com a tabela oficial de Bosses Especiais da Zenit.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-person-badge"></i></div>
+            <h5 class="fw-bold">Carteira de Aventureiro</h5>
+            <p class="text-secondary small mb-0">
+              Vincule seu personagem uma única vez e exiba seu Nível, Classe, Rank Geral, Tier e barra de progresso rumo ao Level Cap.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-trophy"></i></div>
+            <h5 class="fw-bold">Hall da Fama</h5>
+            <p class="text-secondary small mb-0">
+              Ranking interno automático com o Top 10 dos jogadores mais fortes do clã. Consulta local ultrarrápida e 100% segura contra banimentos.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="bi bi-bell"></i></div>
+            <h5 class="fw-bold">Despertador Privado</h5>
+            <p class="text-secondary small mb-0">
+              Ative um alarme para o seu Boss favorito e receba uma mensagem direta (DM) exatamente 10 minutos antes dele nascer.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Manual Oficial -->
+  <section id="manual" class="py-5 bg-black bg-opacity-25 border-top border-bottom border-secondary border-opacity-25">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">📚 MANUAL OFICIAL DO <span class="text-gradient">PRISTONFORGE</span></h2>
+        <p class="text-secondary">Basta digitar <code>/</code> no chat do Discord e escolher o comando desejado.</p>
+      </div>
+
+      <!-- Categoria 1: Personagem e Ranking -->
+      <div class="mb-5">
+        <h4 class="mb-3 d-flex align-items-center gap-2 text-warning">
+          <i class="bi bi-person-vcard"></i> 1. O SEU PERSONAGEM E RANKING
+        </h4>
+        <p class="text-secondary small mb-4">Os comandos essenciais para acompanhar a sua evolução, o desempenho do clã e monitorar adversários.</p>
+
+        <div class="command-card gold-border">
+          <div class="mb-2">
+            <span class="cmd-badge">/registrar</span>
+            <span class="param-badge">nick: [SeuNick]</span>
+            <span class="param-badge">servidor: [SeuServidor]</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Vincula permanentemente o seu personagem da Zenit à sua conta do Discord.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Só precisa usar este comando <strong>UMA VEZ</strong>. Ao registrar-se, você entra oficialmente para o banco de dados do clã e destrava os comandos <code>/perfil</code> e <code>/topclan</code>.</p>
+        </div>
+
+        <div class="command-card gold-border">
+          <div class="mb-2">
+            <span class="cmd-badge">/perfil</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Exibe instantaneamente a sua Carteira de Aventureiro (Level, Classe, Barra de Progresso e Tier).</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Adeus digitação! Como você já usou o <code>/registrar</code>, o bot puxa os seus dados em 1 segundo e inclui um botão para atualizar seu nível quando você upar.</p>
+        </div>
+
+        <div class="command-card gold-border">
+          <div class="mb-2">
+            <span class="cmd-badge">/topclan</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Exibe o Hall da Fama do servidor.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Mostra o cobiçado Top 10 dos jogadores de maior nível registrados no Discord do clã. Opera com leitura local no banco de dados para máxima velocidade e segurança.</p>
+        </div>
+
+        <div class="command-card gold-border">
+          <div class="mb-2">
+            <span class="cmd-badge">/consultar</span>
+            <span class="param-badge">nick: [Nick]</span>
+            <span class="param-badge">servidor: [Servidor]</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> O Radar Olheiro Global. 🕵️</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Serve para realizar pesquisas externas sem interferir no seu <code>/perfil</code>. Ideal para verificar o ranking dos seus personagens secundários (Alts), confirmar a classe de quem disputou spot com você ou investigar clãs rivais.</p>
+        </div>
+      </div>
+
+      <!-- Categoria 2: Caçada e Bosses -->
+      <div class="mb-5">
+        <h4 class="mb-3 d-flex align-items-center gap-2" style="color: var(--forge-primary);">
+          <i class="bi bi-fire"></i> 2. CAÇADA E BOSSES
+        </h4>
+        <p class="text-secondary small mb-4">Ferramentas de precisão para garantir que você nunca perca um drop importante.</p>
+
+        <div class="command-card">
+          <div class="mb-2">
+            <span class="cmd-badge">/bossatual</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Lista todos os Bosses Especiais previstos para nascer na <strong>hora atual</strong>.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Cruza a base oficial da Wiki com os minutos dinâmicos do servidor, exibindo Nome, Nível, Mapa e o horário cravado de Alfa a Zeta.</p>
+        </div>
+
+        <div class="command-card">
+          <div class="mb-2">
+            <span class="cmd-badge">/timeboss</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Envia no canal oficial o painel com os minutos dinâmicos (Alfa, Beta, Gama, Delta, Ômega e Zeta) do dia.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Acompanha um botão interativo <strong>"⏰ Ver Boss da Hora"</strong> embaixo da tabela para qualquer membro consultar os bosses atuais com apenas um clique!</p>
+        </div>
+
+        <div class="command-card">
+          <div class="mb-2">
+            <span class="cmd-badge">/avisar</span>
+            <span class="param-badge">boss: [Nome do Boss]</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Ativa um despertador pessoal para o Boss escolhido (com preenchimento automático).</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> O PristonForge enviará uma <strong>Mensagem Direta (DM)</strong> privada avisando você 10 minutos antes do nascimento. O alarme é de uso único e desativa sozinho após o aviso.</p>
+        </div>
+      </div>
+
+      <!-- Categoria 3: Administração -->
+      <div class="mb-5">
+        <h4 class="mb-3 d-flex align-items-center gap-2 text-info">
+          <i class="bi bi-gear-wide-connected"></i> 3. COMANDOS DA ADMINISTRAÇÃO (Apenas Líderes)
+        </h4>
+        <p class="text-secondary small mb-4">Comandos exclusivos para membros com permissão de Administrador no Discord.</p>
+
+        <div class="command-card admin-border">
+          <div class="mb-2">
+            <span class="cmd-badge text-info border-info bg-info bg-opacity-10">/config</span>
+            <span class="param-badge">canal: [#canal]</span>
+            <span class="param-badge">servidor: [Alvo]</span>
+            <span class="param-badge">level_cap: [Opcional]</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Estabelece a infraestrutura inicial do bot no servidor do Discord.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Define o canal de auto-postagem matinal, o servidor principal do clã e faz a limpeza e sincronização forçada da tabela de Bosses no MongoDB.</p>
+        </div>
+
+        <div class="command-card admin-border">
+          <div class="mb-2">
+            <span class="cmd-badge text-info border-info bg-info bg-opacity-10">/levelcap</span>
+            <span class="param-badge">cap: [Novo Nível]</span>
+          </div>
+          <p class="mb-1"><strong>O que faz:</strong> Atualiza rapidamente o Nível Máximo do servidor.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> Recalibra o cálculo matemático das barras de progresso de todos os membros quando a Zenit lança expansões de nível.</p>
+        </div>
+
+        <div class="command-card admin-border">
+          <div class="mb-2">
+            <span class="cmd-badge text-info border-info bg-info bg-opacity-10">/status</span>
+            <span class="cmd-badge text-info border-info bg-info bg-opacity-10 ms-2">/ajuda</span>
+          </div>
+          <p class="mb-1"><strong>O que fazem:</strong> Diagnóstico técnico e resumo rápido.</p>
+          <p class="text-secondary small mb-0"><em>Detalhe:</em> O <code>/status</code> exibe o servidor configurado, o canal ativo e a latência (Ping) da API. O <code>/ajuda</code> mostra um painel resumido dos comandos.</p>
+        </div>
+      </div>
+
+      <!-- Dica de Ouro (Botões Interativos) -->
+      <div class="golden-tip">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mb-3 mb-lg-0">
+            <h5 class="fw-bold text-warning mb-2"><i class="bi bi-lightbulb-fill me-2"></i>DICA DE OURO: BOTÕES INTERATIVOS!</h5>
+            <p class="mb-0 text-light small">
+              Você não precisa digitar comandos repetidamente! Os painéis gerados pelo <strong>PristonForge</strong> possuem botões inteligentes logo abaixo da mensagem para facilitar a sua gameplay:
+            </p>
+          </div>
+          <div class="col-lg-4 d-flex flex-wrap gap-2 justify-content-lg-end">
+            <span class="discord-btn">🔄 Atualizar Dados</span>
+            <span class="discord-btn discord-btn-secondary">🔄 Atualizar Painel (Local)</span>
+            <span class="discord-btn">⏰ Ver Boss da Hora</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Seção Tabela de Bosses Auditados -->
+  <section id="bosses" class="py-5">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">🛡️ BASE DE BOSSES <span class="text-gradient">OFICIAL</span></h2>
+        <p class="text-secondary">Lista de Bosses Especiais integrada no núcleo do bot de acordo com a Wiki Oficial.</p>
+      </div>
+
+      <div class="table-responsive rounded-3 border border-secondary border-opacity-25">
+        <table class="table table-dark table-hover mb-0 align-middle">
+          <thead class="table-active">
+            <tr>
+              <th>👑 Boss Especial</th>
+              <th>⭐ Nível</th>
+              <th>🗺️ Mapa Oficial</th>
+              <th>⏰ Janelas de Horário (Time Boss)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="fw-semibold text-warning">Babel (I1)</td>
+              <td><span class="badge bg-secondary">105</span></td>
+              <td>Estrada de Ferro do Caos</td>
+              <td><code>00:xx, 03:xx, 06:xx, 09:xx, 12:xx, 15:xx, 18:xx, 21:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Babel (I2)</td>
+              <td><span class="badge bg-secondary">105</span></td>
+              <td>Coração de Perum</td>
+              <td><code>01:xx, 04:xx, 07:xx, 10:xx, 13:xx, 16:xx, 19:xx, 22:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Fúria</td>
+              <td><span class="badge bg-secondary">105</span></td>
+              <td>Templo Maldito - 3º Andar</td>
+              <td><code>02:xx, 05:xx, 08:xx, 11:xx, 14:xx, 17:xx, 20:xx, 23:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Valento</td>
+              <td><span class="badge bg-secondary">110</span></td>
+              <td>Vale Gallubia</td>
+              <td><code>01:xx, 05:xx, 09:xx, 13:xx, 17:xx, 21:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Kelvezu</td>
+              <td><span class="badge bg-secondary">115</span></td>
+              <td>Covil do Kelvezu</td>
+              <td><code>01:xx, 07:xx, 13:xx, 19:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Mokova</td>
+              <td><span class="badge bg-secondary">120</span></td>
+              <td>Templo Perdido</td>
+              <td><code>02:xx, 08:xx, 14:xx, 20:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Shy</td>
+              <td><span class="badge bg-secondary">125</span></td>
+              <td>Torre Sem Fim - 3º Andar</td>
+              <td><code>07:xx, 15:xx, 23:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Tulla</td>
+              <td><span class="badge bg-secondary">130</span></td>
+              <td>Mina de Gelo - 1º Andar</td>
+              <td><code>04:xx, 12:xx, 20:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Draxos</td>
+              <td><span class="badge bg-secondary">135</span></td>
+              <td>Laboratório Secreto</td>
+              <td><code>09:xx, 19:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Greedy</td>
+              <td><span class="badge bg-secondary">140</span></td>
+              <td>Arma Antiga</td>
+              <td><code>10:xx, 21:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Espectro do Midranda</td>
+              <td><span class="badge bg-secondary">150</span></td>
+              <td>Estrada Sombria</td>
+              <td><code>11:xx, 19:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Dragão de Snowstorm</td>
+              <td><span class="badge bg-secondary">160</span></td>
+              <td>Abismo do Mar Congelado</td>
+              <td><code>11:xx, 22:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Yagditha</td>
+              <td><span class="badge bg-secondary">160</span></td>
+              <td>Abismo do Mar</td>
+              <td><code>04:xx, 10:xx, 16:xx, 22:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Zuepi</td>
+              <td><span class="badge bg-secondary">55 a 165</span></td>
+              <td>Vários Mapas</td>
+              <td><code>05:xx, 11:xx, 17:xx, 23:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Midranda Ressurgido</td>
+              <td><span class="badge bg-danger">180</span></td>
+              <td>Santuário do Abismo</td>
+              <td><code>19:xx</code></td>
+            </tr>
+            <tr>
+              <td class="fw-semibold text-warning">Dama Flamejante</td>
+              <td><span class="badge bg-danger">190</span></td>
+              <td>Coração de Fogo</td>
+              <td><code>22:xx, 23:xx</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="text-center">
+    <div class="container">
+      <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="Logo" width="48" height="48" class="rounded-circle mb-3 border border-secondary">
+      <h5 class="brand-font fw-bold mb-1">PRISTON<span class="text-gradient">FORGE</span></h5>
+      <p class="text-secondary small mb-3">Desenvolvido com Node.js, Discord.js, Puppeteer e MongoDB.</p>
+      <p class="text-secondary small mb-0">&copy; 2026 PristonForge. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
