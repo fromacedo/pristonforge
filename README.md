@@ -133,7 +133,7 @@ Lista de Bosses Especiais integrada no núcleo do bot de acordo com a **Wiki Ofi
 
   [![Convidar PristonForge](https://img.shields.io/badge/🔥_Convidar_PristonForge_para_o_Servidor-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands)
 
-  <br>
+  <br><br>
   Desenvolvido por <strong>fromacedo</strong><br>
   <sub>&copy; 2026 PristonForge. Todos os direitos reservados.</sub>
 </div>
