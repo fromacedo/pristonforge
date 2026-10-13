@@ -17,6 +17,7 @@
       --forge-primary: #FF4500;
       --forge-secondary: #FF8C00;
       --forge-gold: #FFD700;
+      --discord-blurple: #5865F2;
       --forge-bg: #0b0c10;
       --forge-card: #14171f;
       --forge-border: #282c37;
@@ -69,6 +70,24 @@
     }
 
     /* Botões Customizados */
+    .btn-discord {
+      background: linear-gradient(135deg, var(--discord-blurple), #4752c4);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-discord:hover {
+      background: linear-gradient(135deg, #6875f5, var(--discord-blurple));
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(88, 101, 242, 0.65);
+    }
+
     .btn-forge {
       background: linear-gradient(135deg, var(--forge-primary), #d63600);
       color: #fff;
@@ -168,6 +187,14 @@
       padding: 24px;
     }
 
+    /* Banner CTA Final */
+    .cta-box {
+      background: radial-gradient(circle at right, rgba(88, 101, 242, 0.2), rgba(255, 69, 0, 0.1)), var(--forge-card);
+      border: 1px solid var(--forge-border);
+      border-radius: 16px;
+      padding: 48px 32px;
+    }
+
     /* Simulação de Botão do Discord */
     .discord-btn {
       background-color: #5865F2;
@@ -207,13 +234,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav gap-3 align-items-center">
+        <ul class="navbar-nav gap-3 align-items-center mt-3 mt-lg-0">
           <li class="nav-item"><a class="nav-link text-light" href="#recursos">Recursos</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="#manual">Manual de Comandos</a></li>
           <li class="nav-item"><a class="nav-link text-light" href="#bosses">Bosses Auditados</a></li>
           <li class="nav-item">
             <a class="btn btn-outline-light btn-sm px-3" href="https://github.com/" target="_blank">
               <i class="bi bi-github me-1"></i> GitHub
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-discord btn-sm px-3 py-2" href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">
+              <i class="bi bi-discord me-1"></i> Adicionar Bot
             </a>
           </li>
         </ul>
@@ -235,6 +267,9 @@
         O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, espie adversários e domine o tempo exato de todos os Bosses com precisão cirúrgica.
       </p>
       <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord">
+          <i class="bi bi-discord me-2"></i>Adicionar ao Discord
+        </a>
         <a href="#manual" class="btn btn-forge">
           <i class="bi bi-book-half me-2"></i>Ler Manual de Instruções
         </a>
@@ -444,7 +479,7 @@
         <p class="text-secondary">Lista de Bosses Especiais integrada no núcleo do bot de acordo com a Wiki Oficial.</p>
       </div>
 
-      <div class="table-responsive rounded-3 border border-secondary border-opacity-25">
+      <div class="table-responsive rounded-3 border border-secondary border-opacity-25 mb-5">
         <table class="table table-dark table-hover mb-0 align-middle">
           <thead class="table-active">
             <tr>
@@ -554,6 +589,18 @@
           </tbody>
         </table>
       </div>
+
+      <!-- Call to Action Final -->
+      <div class="cta-box text-center">
+        <h3 class="fw-bold mb-2">PRONTO PARA ELEVAR O NÍVEL DO SEU CLÃ?</h3>
+        <p class="text-secondary mb-4 mx-auto" style="max-width: 550px;">
+          Instale o <strong>PristonForge</strong> no seu servidor do Discord agora mesmo e configure o radar em menos de 1 minuto usando o comando <code>/config</code>.
+        </p>
+        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord btn-lg">
+          <i class="bi bi-discord me-2"></i>Convidar PristonForge para o Servidor
+        </a>
+      </div>
+
     </div>
   </section>
 
