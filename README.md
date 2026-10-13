@@ -100,7 +100,7 @@ O núcleo do **PristonForge** conta com uma base blindada e sincronizada com a W
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/SEU-USUARIO/pristonforge.git](https://github.com/SEU-USUARIO/pristonforge.git)
+   git clone [https://github.com/fromacedo/pristonforge.git](https://github.com/fromacedo/pristonforge.git)
    cd pristonforge
    ```
 
@@ -153,5 +153,5 @@ node_modules/
 ---
 
 <div align="center">
-  Desenvolvido com 🔥 por <strong>PristonForge</strong>
+  Desenvolvido por <strong>fromacedo</strong>
 </div>
