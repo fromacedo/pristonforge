@@ -29,43 +29,60 @@
       color: #e2e8f0;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     h1, h2, h3, .brand-font {
       font-family: 'Cinzel', serif;
     }
 
+    /* Linha divisória de estilo RPG */
+    .rpg-divider {
+      height: 2px;
+      width: 100px;
+      background: linear-gradient(90deg, transparent, var(--forge-primary), transparent);
+      margin: 0 auto 30px auto;
+    }
+
     /* Navbar */
     .navbar {
-      background: rgba(11, 12, 16, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(11, 12, 16, 0.9);
+      backdrop-filter: blur(15px);
       border-bottom: 1px solid rgba(255, 69, 0, 0.2);
     }
 
     /* Hero Section */
     .hero-section {
       position: relative;
-      padding: 100px 0 80px;
-      background: radial-gradient(circle at 50% 20%, rgba(255, 69, 0, 0.18), transparent 60%),
+      padding: 120px 0 90px;
+      background: radial-gradient(circle at 50% -20%, rgba(255, 69, 0, 0.2), transparent 70%),
                   linear-gradient(180deg, #0b0c10 0%, #12151e 100%);
       border-bottom: 1px solid var(--forge-border);
     }
 
+    /* Animação de pulsação na Logo */
+    @keyframes forgePulse {
+      0% { box-shadow: 0 0 25px rgba(255, 69, 0, 0.5); }
+      50% { box-shadow: 0 0 45px rgba(255, 140, 0, 0.8); }
+      100% { box-shadow: 0 0 25px rgba(255, 69, 0, 0.5); }
+    }
+
     .bot-avatar {
-      width: 150px;
-      height: 150px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
       border: 3px solid var(--forge-primary);
-      box-shadow: 0 0 35px rgba(255, 69, 0, 0.5);
-      transition: transform 0.3s ease;
+      animation: forgePulse 3s infinite ease-in-out;
+      transition: transform 0.4s ease;
+      object-fit: cover;
     }
 
     .bot-avatar:hover {
-      transform: scale(1.05) rotate(2deg);
+      transform: scale(1.08) rotate(5deg);
     }
 
     .text-gradient {
-      background: linear-gradient(90deg, #FF4500, #FFA500);
+      background: linear-gradient(90deg, #FF4500, #FFD700);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -79,14 +96,14 @@
       padding: 12px 28px;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .btn-discord:hover {
       background: linear-gradient(135deg, #6875f5, var(--discord-blurple));
       color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(88, 101, 242, 0.65);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
     }
 
     .btn-forge {
@@ -97,58 +114,75 @@
       padding: 12px 28px;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(255, 69, 0, 0.35);
-      transition: all 0.2s ease;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     .btn-forge:hover {
-      background: linear-gradient(135deg, #ff571a, var(--forge-primary));
+      background: linear-gradient(135deg, #ff6b33, var(--forge-primary));
       color: #fff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 69, 0, 0.55);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6);
     }
 
-    /* Cards de Recursos */
+    /* Cards de Recursos Premium */
     .feature-card {
-      background: var(--forge-card);
+      background: linear-gradient(180deg, var(--forge-card) 0%, rgba(20, 23, 31, 0.5) 100%);
       border: 1px solid var(--forge-border);
-      border-radius: 12px;
-      padding: 28px;
+      border-radius: 16px;
+      padding: 32px 24px;
       height: 100%;
-      transition: all 0.25s ease;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: transparent;
+      transition: background 0.4s ease;
     }
 
     .feature-card:hover {
-      border-color: var(--forge-primary);
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      border-color: rgba(255, 69, 0, 0.3);
+    }
+
+    .feature-card:hover::before {
+      background: linear-gradient(90deg, var(--forge-primary), var(--forge-gold));
     }
 
     .feature-icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 12px;
-      background: rgba(255, 69, 0, 0.12);
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(255, 69, 0, 0.15), rgba(255, 215, 0, 0.05));
       color: var(--forge-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 69, 0, 0.2);
     }
 
-    /* Bloco de Comandos (Estilo Discord Quote) */
+    /* Bloco de Comandos */
     .command-card {
       background: var(--forge-card);
       border: 1px solid var(--forge-border);
       border-left: 4px solid var(--forge-primary);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 16px;
-      transition: background 0.2s ease;
+      border-radius: 10px;
+      padding: 22px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
     }
 
     .command-card:hover {
       background: #191d28;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transform: scale(1.01);
     }
 
     .command-card.gold-border {
@@ -160,9 +194,9 @@
     }
 
     .cmd-badge {
-      background-color: rgba(255, 69, 0, 0.15);
-      color: #ff6a33;
-      border: 1px solid rgba(255, 69, 0, 0.3);
+      background-color: rgba(255, 69, 0, 0.12);
+      color: #ff8552;
+      border: 1px solid rgba(255, 69, 0, 0.25);
       font-family: monospace;
       font-size: 1rem;
       padding: 5px 10px;
@@ -178,74 +212,95 @@
       padding: 4px 8px;
       border-radius: 4px;
       margin-left: 6px;
+      border: 1px solid #333947;
     }
 
-    /* Dica de Ouro */
+    /* Dica de Ouro Melhorada */
     .golden-tip {
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 69, 0, 0.08));
-      border: 1px solid rgba(255, 215, 0, 0.35);
-      border-radius: 12px;
-      padding: 24px;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 69, 0, 0.05));
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      border-radius: 16px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .golden-tip::before {
+      content: '✨';
+      position: absolute;
+      top: -10px; right: 10px;
+      font-size: 4rem; opacity: 0.1;
     }
 
     /* Banner CTA Final */
     .cta-box {
-      background: radial-gradient(circle at right, rgba(88, 101, 242, 0.2), rgba(255, 69, 0, 0.1)), var(--forge-card);
+      background: radial-gradient(circle at right bottom, rgba(88, 101, 242, 0.2), rgba(255, 69, 0, 0.05)), var(--forge-card);
       border: 1px solid var(--forge-border);
-      border-radius: 16px;
-      padding: 48px 32px;
+      border-radius: 20px;
+      padding: 50px 30px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
     }
 
-    /* Simulação de Botão do Discord */
+    /* Simulação de Botão do Discord (Estática) */
     .discord-btn {
       background-color: #5865F2;
       color: white;
       border: none;
-      padding: 6px 14px;
-      border-radius: 4px;
-      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       cursor: default;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
 
     .discord-btn-secondary {
       background-color: #4f545c;
     }
 
+    /* Tabela Premium */
+    .table-hover tbody tr:hover {
+      background-color: rgba(255, 69, 0, 0.05) !important;
+      color: #fff;
+    }
+    .table-dark {
+      --bs-table-bg: var(--forge-card);
+    }
+
     footer {
       background-color: #07080a;
       border-top: 1px solid var(--forge-border);
-      padding: 40px 0;
+      padding: 50px 0;
     }
   </style>
 </head>
 <body>
 
   <!-- Barra de Navegação -->
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2 brand-font fw-bold text-white" href="#">
         <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="Logo" width="36" height="36" class="rounded-circle border border-danger">
         PRISTON<span class="text-gradient">FORGE</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav gap-3 align-items-center mt-3 mt-lg-0">
-          <li class="nav-item"><a class="nav-link text-light" href="#recursos">Recursos</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#manual">Manual de Comandos</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#bosses">Bosses Auditados</a></li>
+          <li class="nav-item"><a class="nav-link text-light fw-semibold" href="#recursos">Recursos</a></li>
+          <li class="nav-item"><a class="nav-link text-light fw-semibold" href="#manual">Manual de Comandos</a></li>
+          <li class="nav-item"><a class="nav-link text-light fw-semibold" href="#bosses">Bosses Auditados</a></li>
           <li class="nav-item">
-            <a class="btn btn-outline-light btn-sm px-3" href="https://github.com/fromacedo/pristonforge" target="_blank">
+            <a class="btn btn-outline-secondary btn-sm px-3 rounded-pill" href="https://github.com/fromacedo/pristonforge" target="_blank">
               <i class="bi bi-github me-1"></i> GitHub
             </a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-discord btn-sm px-3 py-2" href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">
+            <a class="btn btn-discord btn-sm px-4 py-2 rounded-pill" href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">
               <i class="bi bi-discord me-1"></i> Adicionar Bot
             </a>
           </li>
@@ -258,23 +313,24 @@
   <section class="hero-section text-center">
     <div class="container">
       <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
-      <div class="mb-2">
-        <span class="badge rounded-pill text-bg-danger bg-opacity-25 text-warning border border-warning px-3 py-2">
+      <div class="mb-3">
+        <span class="badge rounded-pill bg-black text-warning border border-warning px-3 py-2 fs-6 shadow-sm">
           <i class="bi bi-shield-check me-1"></i> Sincronizado com a Wiki Oficial BPT
         </span>
       </div>
-      <h1 class="display-4 fw-bold mb-3">PRISTON<span class="text-gradient">FORGE</span></h1>
-      <p class="lead text-secondary mx-auto mb-4" style="max-width: 680px;">
+      <h1 class="display-3 fw-bold mb-3">PRISTON<span class="text-gradient">FORGE</span></h1>
+      <div class="rpg-divider"></div>
+      <p class="lead text-secondary mx-auto mb-5" style="max-width: 720px; font-weight: 300;">
         O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, espie adversários e domine o tempo exato de todos os Bosses com precisão cirúrgica.
       </p>
       <div class="d-flex justify-content-center gap-3 flex-wrap">
-        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord">
+        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord btn-lg px-4">
           <i class="bi bi-discord me-2"></i>Adicionar ao Discord
         </a>
-        <a href="#manual" class="btn btn-forge">
+        <a href="#manual" class="btn btn-forge btn-lg px-4">
           <i class="bi bi-book-half me-2"></i>Ler Manual de Instruções
         </a>
-        <a href="https://github.com/fromacedo/pristonforge" target="_blank" class="btn btn-outline-secondary px-4 py-2 d-flex align-items-center">
+        <a href="https://github.com/fromacedo/pristonforge" target="_blank" class="btn btn-outline-secondary btn-lg px-4 d-flex align-items-center">
           <i class="bi bi-code-slash me-2"></i>Ver Repositório
         </a>
       </div>
@@ -283,9 +339,10 @@
 
   <!-- Seção de Recursos -->
   <section id="recursos" class="py-5">
-    <div class="container py-4">
+    <div class="container py-5">
       <div class="text-center mb-5">
         <h2 class="fw-bold">FORJADO PARA A <span class="text-gradient">ELITE</span></h2>
+        <div class="rpg-divider"></div>
         <p class="text-secondary">Arquitetura em nuvem com MongoDB e proteção inteligente contra bloqueios.</p>
       </div>
 
@@ -319,7 +376,7 @@
         </div>
         <div class="col-md-6 col-lg-3">
           <div class="feature-card">
-            <div class="feature-icon"><i class="bi bi-bell"></i></div>
+            <div class="feature-icon"><i class="bi bi-bell-fill"></i></div>
             <h5 class="fw-bold">Despertador Privado</h5>
             <p class="text-secondary small mb-0">
               Ative um alarme para o seu Boss favorito e receba uma mensagem direta (DM) exatamente 10 minutos antes dele nascer.
@@ -332,22 +389,23 @@
 
   <!-- Seção Manual Oficial -->
   <section id="manual" class="py-5 bg-black bg-opacity-25 border-top border-bottom border-secondary border-opacity-25">
-    <div class="container py-4">
+    <div class="container py-5">
       <div class="text-center mb-5">
         <h2 class="fw-bold">📚 MANUAL OFICIAL DO <span class="text-gradient">PRISTONFORGE</span></h2>
+        <div class="rpg-divider"></div>
         <p class="text-secondary">Basta digitar <code>/</code> no chat do Discord e escolher o comando desejado.</p>
       </div>
 
       <!-- Categoria 1: Personagem e Ranking -->
       <div class="mb-5">
-        <h4 class="mb-3 d-flex align-items-center gap-2 text-warning">
-          <i class="bi bi-person-vcard"></i> 1. O SEU PERSONAGEM E RANKING
+        <h4 class="mb-4 d-flex align-items-center gap-2" style="color: var(--forge-gold);">
+          <i class="bi bi-person-vcard fs-3"></i> 1. O SEU PERSONAGEM E RANKING
         </h4>
         <p class="text-secondary small mb-4">Os comandos essenciais para acompanhar a sua evolução, o desempenho do clã e monitorar adversários.</p>
 
         <div class="command-card gold-border">
           <div class="mb-2">
-            <span class="cmd-badge">/registrar</span>
+            <span class="cmd-badge" style="color:var(--forge-gold); border-color:var(--forge-gold); background:rgba(255,215,0,0.1)">/registrar</span>
             <span class="param-badge">nick: [SeuNick]</span>
             <span class="param-badge">servidor: [SeuServidor]</span>
           </div>
@@ -357,7 +415,7 @@
 
         <div class="command-card gold-border">
           <div class="mb-2">
-            <span class="cmd-badge">/perfil</span>
+            <span class="cmd-badge" style="color:var(--forge-gold); border-color:var(--forge-gold); background:rgba(255,215,0,0.1)">/perfil</span>
           </div>
           <p class="mb-1"><strong>O que faz:</strong> Exibe instantaneamente a sua Carteira de Aventureiro (Level, Classe, Barra de Progresso e Tier).</p>
           <p class="text-secondary small mb-0"><em>Detalhe:</em> Adeus digitação! Como você já usou o <code>/registrar</code>, o bot puxa os seus dados em 1 segundo e inclui um botão para atualizar seu nível quando você upar.</p>
@@ -365,7 +423,7 @@
 
         <div class="command-card gold-border">
           <div class="mb-2">
-            <span class="cmd-badge">/topclan</span>
+            <span class="cmd-badge" style="color:var(--forge-gold); border-color:var(--forge-gold); background:rgba(255,215,0,0.1)">/topclan</span>
           </div>
           <p class="mb-1"><strong>O que faz:</strong> Exibe o Hall da Fama do servidor.</p>
           <p class="text-secondary small mb-0"><em>Detalhe:</em> Mostra o cobiçado Top 10 dos jogadores de maior nível registrados no Discord do clã. Opera com leitura local no banco de dados para máxima velocidade e segurança.</p>
@@ -373,7 +431,7 @@
 
         <div class="command-card gold-border">
           <div class="mb-2">
-            <span class="cmd-badge">/consultar</span>
+            <span class="cmd-badge" style="color:var(--forge-gold); border-color:var(--forge-gold); background:rgba(255,215,0,0.1)">/consultar</span>
             <span class="param-badge">nick: [Nick]</span>
             <span class="param-badge">servidor: [Servidor]</span>
           </div>
@@ -384,8 +442,8 @@
 
       <!-- Categoria 2: Caçada e Bosses -->
       <div class="mb-5">
-        <h4 class="mb-3 d-flex align-items-center gap-2" style="color: var(--forge-primary);">
-          <i class="bi bi-fire"></i> 2. CAÇADA E BOSSES
+        <h4 class="mb-4 d-flex align-items-center gap-2" style="color: var(--forge-primary);">
+          <i class="bi bi-fire fs-3"></i> 2. CAÇADA E BOSSES
         </h4>
         <p class="text-secondary small mb-4">Ferramentas de precisão para garantir que você nunca perca um drop importante.</p>
 
@@ -401,7 +459,7 @@
           <div class="mb-2">
             <span class="cmd-badge">/timeboss</span>
           </div>
-          <p class="mb-1"><strong>O que faz:</strong> Envia no canal oficial o painel com os minutos dinâmicos (Alfa, Beta, Gama, Delta, Ômega e Zeta) do dia.</p>
+          <p class="mb-1"><strong>O que faz:</strong> Envia no canal oficial o painel com os minutos dinâmicos (Alfa a Zeta) do dia.</p>
           <p class="text-secondary small mb-0"><em>Detalhe:</em> Acompanha um botão interativo <strong>"⏰ Ver Boss da Hora"</strong> embaixo da tabela para qualquer membro consultar os bosses atuais com apenas um clique!</p>
         </div>
 
@@ -417,8 +475,8 @@
 
       <!-- Categoria 3: Administração -->
       <div class="mb-5">
-        <h4 class="mb-3 d-flex align-items-center gap-2 text-info">
-          <i class="bi bi-gear-wide-connected"></i> 3. COMANDOS DA ADMINISTRAÇÃO (Apenas Líderes)
+        <h4 class="mb-4 d-flex align-items-center gap-2 text-info">
+          <i class="bi bi-gear-wide-connected fs-3"></i> 3. ADMINISTRAÇÃO (Apenas Líderes)
         </h4>
         <p class="text-secondary small mb-4">Comandos exclusivos para membros com permissão de Administrador no Discord.</p>
 
@@ -438,7 +496,7 @@
             <span class="cmd-badge text-info border-info bg-info bg-opacity-10">/levelcap</span>
             <span class="param-badge">cap: [Novo Nível]</span>
           </div>
-          <p class="mb-1"><strong>O que faz:</strong> Atualiza rapidamente o Nível Máximo do servidor.</p>
+          <p class="mb-1"><strong>O que faz:</strong> Atualiza o Nível Máximo do servidor.</p>
           <p class="text-secondary small mb-0"><em>Detalhe:</em> Recalibra o cálculo matemático das barras de progresso de todos os membros quando a Zenit lança expansões de nível.</p>
         </div>
 
@@ -453,15 +511,15 @@
       </div>
 
       <!-- Dica de Ouro (Botões Interativos) -->
-      <div class="golden-tip">
+      <div class="golden-tip shadow-lg">
         <div class="row align-items-center">
-          <div class="col-lg-8 mb-3 mb-lg-0">
+          <div class="col-lg-7 mb-3 mb-lg-0">
             <h5 class="fw-bold text-warning mb-2"><i class="bi bi-lightbulb-fill me-2"></i>DICA DE OURO: BOTÕES INTERATIVOS!</h5>
             <p class="mb-0 text-light small">
-              Você não precisa digitar comandos repetidamente! Os painéis gerados pelo <strong>PristonForge</strong> possuem botões inteligentes logo abaixo da mensagem para facilitar a sua gameplay:
+              Você não precisa digitar comandos repetidamente! Os painéis gerados pelo <strong>PristonForge</strong> possuem botões inteligentes logo abaixo da mensagem para facilitar a sua gameplay no celular ou PC:
             </p>
           </div>
-          <div class="col-lg-4 d-flex flex-wrap gap-2 justify-content-lg-end">
+          <div class="col-lg-5 d-flex flex-wrap gap-2 justify-content-lg-end">
             <span class="discord-btn">🔄 Atualizar Dados</span>
             <span class="discord-btn discord-btn-secondary">🔄 Atualizar Painel (Local)</span>
             <span class="discord-btn">⏰ Ver Boss da Hora</span>
@@ -474,118 +532,119 @@
 
   <!-- Seção Tabela de Bosses Auditados -->
   <section id="bosses" class="py-5">
-    <div class="container py-4">
+    <div class="container py-5">
       <div class="text-center mb-5">
         <h2 class="fw-bold">🛡️ BASE DE BOSSES <span class="text-gradient">OFICIAL</span></h2>
+        <div class="rpg-divider"></div>
         <p class="text-secondary">Lista de Bosses Especiais integrada no núcleo do bot de acordo com a Wiki Oficial.</p>
       </div>
 
-      <div class="table-responsive rounded-3 border border-secondary border-opacity-25 mb-5">
+      <div class="table-responsive rounded-4 border border-secondary border-opacity-25 shadow-lg mb-5">
         <table class="table table-dark table-hover mb-0 align-middle">
           <thead class="table-active">
             <tr>
-              <th>👑 Boss Especial</th>
-              <th>⭐ Nível</th>
-              <th>🗺️ Mapa Oficial</th>
-              <th>⏰ Janelas de Horário (Time Boss)</th>
+              <th class="py-3 px-4">👑 Boss Especial</th>
+              <th class="py-3 px-4">⭐ Nível</th>
+              <th class="py-3 px-4">🗺️ Mapa Oficial</th>
+              <th class="py-3 px-4">⏰ Janelas de Horário (Time Boss)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="fw-semibold text-warning">Babel (I1)</td>
-              <td><span class="badge bg-secondary">105</span></td>
-              <td>Estrada de Ferro do Caos</td>
-              <td><code>00:xx, 03:xx, 06:xx, 09:xx, 12:xx, 15:xx, 18:xx, 21:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Babel (I1)</td>
+              <td class="px-4"><span class="badge bg-secondary">105</span></td>
+              <td class="px-4">Estrada de Ferro do Caos</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">00:xx, 03:xx, 06:xx, 09:xx, 12:xx, 15:xx, 18:xx, 21:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Babel (I2)</td>
-              <td><span class="badge bg-secondary">105</span></td>
-              <td>Coração de Perum</td>
-              <td><code>01:xx, 04:xx, 07:xx, 10:xx, 13:xx, 16:xx, 19:xx, 22:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Babel (I2)</td>
+              <td class="px-4"><span class="badge bg-secondary">105</span></td>
+              <td class="px-4">Coração de Perum</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">01:xx, 04:xx, 07:xx, 10:xx, 13:xx, 16:xx, 19:xx, 22:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Fúria</td>
-              <td><span class="badge bg-secondary">105</span></td>
-              <td>Templo Maldito - 3º Andar</td>
-              <td><code>02:xx, 05:xx, 08:xx, 11:xx, 14:xx, 17:xx, 20:xx, 23:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Fúria</td>
+              <td class="px-4"><span class="badge bg-secondary">105</span></td>
+              <td class="px-4">Templo Maldito - 3º Andar</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">02:xx, 05:xx, 08:xx, 11:xx, 14:xx, 17:xx, 20:xx, 23:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Valento</td>
-              <td><span class="badge bg-secondary">110</span></td>
-              <td>Vale Gallubia</td>
-              <td><code>01:xx, 05:xx, 09:xx, 13:xx, 17:xx, 21:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Valento</td>
+              <td class="px-4"><span class="badge bg-secondary">110</span></td>
+              <td class="px-4">Vale Gallubia</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">01:xx, 05:xx, 09:xx, 13:xx, 17:xx, 21:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Kelvezu</td>
-              <td><span class="badge bg-secondary">115</span></td>
-              <td>Covil do Kelvezu</td>
-              <td><code>01:xx, 07:xx, 13:xx, 19:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Kelvezu</td>
+              <td class="px-4"><span class="badge bg-secondary">115</span></td>
+              <td class="px-4">Covil do Kelvezu</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">01:xx, 07:xx, 13:xx, 19:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Mokova</td>
-              <td><span class="badge bg-secondary">120</span></td>
-              <td>Templo Perdido</td>
-              <td><code>02:xx, 08:xx, 14:xx, 20:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Mokova</td>
+              <td class="px-4"><span class="badge bg-secondary">120</span></td>
+              <td class="px-4">Templo Perdido</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">02:xx, 08:xx, 14:xx, 20:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Shy</td>
-              <td><span class="badge bg-secondary">125</span></td>
-              <td>Torre Sem Fim - 3º Andar</td>
-              <td><code>07:xx, 15:xx, 23:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Shy</td>
+              <td class="px-4"><span class="badge bg-secondary">125</span></td>
+              <td class="px-4">Torre Sem Fim - 3º Andar</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">07:xx, 15:xx, 23:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Tulla</td>
-              <td><span class="badge bg-secondary">130</span></td>
-              <td>Mina de Gelo - 1º Andar</td>
-              <td><code>04:xx, 12:xx, 20:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Tulla</td>
+              <td class="px-4"><span class="badge bg-secondary">130</span></td>
+              <td class="px-4">Mina de Gelo - 1º Andar</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">04:xx, 12:xx, 20:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Draxos</td>
-              <td><span class="badge bg-secondary">135</span></td>
-              <td>Laboratório Secreto</td>
-              <td><code>09:xx, 19:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Draxos</td>
+              <td class="px-4"><span class="badge bg-secondary">135</span></td>
+              <td class="px-4">Laboratório Secreto</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">09:xx, 19:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Greedy</td>
-              <td><span class="badge bg-secondary">140</span></td>
-              <td>Arma Antiga</td>
-              <td><code>10:xx, 21:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Greedy</td>
+              <td class="px-4"><span class="badge bg-secondary">140</span></td>
+              <td class="px-4">Arma Antiga</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">10:xx, 21:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Espectro do Midranda</td>
-              <td><span class="badge bg-secondary">150</span></td>
-              <td>Estrada Sombria</td>
-              <td><code>11:xx, 19:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Espectro do Midranda</td>
+              <td class="px-4"><span class="badge bg-secondary">150</span></td>
+              <td class="px-4">Estrada Sombria</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">11:xx, 19:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Dragão de Snowstorm</td>
-              <td><span class="badge bg-secondary">160</span></td>
-              <td>Abismo do Mar Congelado</td>
-              <td><code>11:xx, 22:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Dragão de Snowstorm</td>
+              <td class="px-4"><span class="badge bg-secondary">160</span></td>
+              <td class="px-4">Abismo do Mar Congelado</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">11:xx, 22:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Yagditha</td>
-              <td><span class="badge bg-secondary">160</span></td>
-              <td>Abismo do Mar</td>
-              <td><code>04:xx, 10:xx, 16:xx, 22:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Yagditha</td>
+              <td class="px-4"><span class="badge bg-secondary">160</span></td>
+              <td class="px-4">Abismo do Mar</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">04:xx, 10:xx, 16:xx, 22:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Zuepi</td>
-              <td><span class="badge bg-secondary">55 a 165</span></td>
-              <td>Vários Mapas</td>
-              <td><code>05:xx, 11:xx, 17:xx, 23:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Zuepi</td>
+              <td class="px-4"><span class="badge bg-secondary">55 a 165</span></td>
+              <td class="px-4">Vários Mapas</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">05:xx, 11:xx, 17:xx, 23:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Midranda Ressurgido</td>
-              <td><span class="badge bg-danger">180</span></td>
-              <td>Santuário do Abismo</td>
-              <td><code>19:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Midranda Ressurgido</td>
+              <td class="px-4"><span class="badge bg-danger">180</span></td>
+              <td class="px-4">Santuário do Abismo</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">19:xx</code></td>
             </tr>
             <tr>
-              <td class="fw-semibold text-warning">Dama Flamejante</td>
-              <td><span class="badge bg-danger">190</span></td>
-              <td>Coração de Fogo</td>
-              <td><code>22:xx, 23:xx</code></td>
+              <td class="fw-semibold text-warning px-4">Dama Flamejante</td>
+              <td class="px-4"><span class="badge bg-danger">190</span></td>
+              <td class="px-4">Coração de Fogo</td>
+              <td class="px-4"><code class="bg-black p-1 rounded">22:xx, 23:xx</code></td>
             </tr>
           </tbody>
         </table>
@@ -593,12 +652,12 @@
 
       <!-- Call to Action Final -->
       <div class="cta-box text-center">
-        <h3 class="fw-bold mb-2">PRONTO PARA ELEVAR O NÍVEL DO SEU CLÃ?</h3>
+        <h3 class="fw-bold mb-3">PRONTO PARA ELEVAR O NÍVEL DO SEU CLÃ?</h3>
         <p class="text-secondary mb-4 mx-auto" style="max-width: 550px;">
           Instale o <strong>PristonForge</strong> no seu servidor do Discord agora mesmo e configure o radar em menos de 1 minuto usando o comando <code>/config</code>.
         </p>
-        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord btn-lg">
-          <i class="bi bi-discord me-2"></i>Convidar PristonForge para o Servidor
+        <a href="https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" class="btn btn-discord btn-lg rounded-pill px-5">
+          <i class="bi bi-discord me-2"></i>Convidar PristonForge
         </a>
       </div>
 
@@ -608,10 +667,11 @@
   <!-- Rodapé -->
   <footer class="text-center">
     <div class="container">
-      <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="Logo" width="48" height="48" class="rounded-circle mb-3 border border-secondary">
-      <h5 class="brand-font fw-bold mb-1">PRISTON<span class="text-gradient">FORGE</span></h5>
+      <img src="https://i.postimg.cc/W4PyGbVV/Priston-Forge-Avatar.jpg" alt="Logo" width="56" height="56" class="rounded-circle mb-3 border border-secondary shadow-sm">
+      <h4 class="brand-font fw-bold mb-1">PRISTON<span class="text-gradient">FORGE</span></h4>
       <p class="text-secondary small mb-2">Desenvolvido com Node.js, Discord.js, Puppeteer e MongoDB.</p>
-      <p class="text-light small mb-2">Desenvolvido por <strong class="text-warning">fromacedo</strong></p>
+      <p class="text-light small mb-3">Desenvolvido por <strong class="text-warning">fromacedo</strong></p>
+      <div class="rpg-divider" style="width: 50px;"></div>
       <p class="text-secondary small mb-0">&copy; 2026 PristonForge. Todos os direitos reservados.</p>
     </div>
   </footer>
