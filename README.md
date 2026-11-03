@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./logo.jpg" alt="PristonForge Logo" width="140" height="140" style="border-radius: 50%; border: 3px solid #FF4500;">
+  <img src=".imagem//logo.jpg" alt="PristonForge Logo" width="140" height="140" style="border-radius: 50%; border: 3px solid #FF4500;">
 
   # 🛡️ PristonForge
   ### O Assistente de Elite para Clãs de Priston Tale (BPT)
