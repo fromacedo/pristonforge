@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./imagem//logo.jpg" alt="PristonForge Logo" width="140" height="140" style="border-radius: 50%; border: 3px solid #FF4500;">
+  <img src="./logo.jpg" alt="PristonForge Logo" width="140" height="140" style="border-radius: 50%; border: 3px solid #FF4500;">
 
   # 🛡️ PristonForge
   ### O Assistente de Elite para Clãs de Priston Tale (BPT)
@@ -10,7 +10,7 @@
 
   <p align="center">
     O assistente definitivo de Discord para clãs e jogadores de <strong>Priston Tale Brasil</strong>.<br>
-    Acompanhe o nível da sua guilda, explore espólios épicos e domine o tempo exato de todos os Bosses com precisão cirúrgica.
+    Acompanhe o nível da sua guilda, explore espólios épicos, convoque o clã para a Chaos Arena e domine o tempo exato de todos os Bosses com precisão cirúrgica.
   </p>
 
   [![Adicionar ao Discord](https://img.shields.io/badge/➕_Adicionar_ao_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands)
@@ -21,10 +21,11 @@
 
 ## 🔥 Forjado para a Elite
 
-O **PristonForge** opera em nuvem com proteção inteligente para entregar informações em tempo real diretamente no servidor do seu clã:
+O **PristonForge** opera em nuvem com proteção inteligente e barreira administrativa backend para entregar informações precisas diretamente no servidor do seu clã:
 
 * 🎯 **Radar de Bosses:** Monitoramento dos minutos dinâmicos (`Alfa` a `Zeta`) combinados com a tabela oficial de Bosses Especiais da Zenit.
-* 📖 **Enciclopédia de Drops:** Consulte espólios, localizações e atributos de monstros e itens raros (Endgame) diretamente no chat com autocompletar inteligente.
+* ⚔️ **Alerta Semanal da Chaos Arena:** Convocação automática toda sexta-feira com menção `@everyone` (antecedência configurável antes das 21h00), trazendo as regras oficiais dos 9 rounds e a recompensa da Caixa da Glória.
+* 📖 **Enciclopédia de Drops:** Consulte espólios, localizações e atributos de monstros e itens raros (Endgame revisado por Tiers: Abissal, Verthex e acessórios de Boss) direto no chat com autocompletar inteligente.
 * 🪪 **Carteira de Aventureiro:** Vincule seu personagem uma única vez e exiba seu Nível, Classe, Rank Geral, Tier e barra de progresso rumo ao Level Cap.
 * 🏆 **Hall da Fama:** Ranking interno automático com o **Top 10** dos jogadores mais fortes do clã. Consulta ultrarrápida e 100% segura.
 * 🔔 **Despertador Privado:** Ative um alarme para o seu Boss favorito e receba uma Mensagem Direta (DM) exatamente **10 minutos antes** dele nascer.
@@ -33,12 +34,13 @@ O **PristonForge** opera em nuvem com proteção inteligente para entregar infor
 
 ## 🚀 Como Instalar no seu Servidor (Em 1 Minuto)
 
-Qualquer líder ou administrador de Discord pode adicionar e ativar o **PristonForge** gratuitamente em 3 passos simples:
+Qualquer líder ou administrador de Discord pode adicionar e ativar o **PristonForge** gratuitamente:
 
 1. **Convide o Bot:** Clique no botão **[Adicionar ao Discord](https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands)** e selecione o servidor do seu clã.
 2. **Configure o Radar:** No seu Discord, digite `/config`, escolha o **canal de texto** onde o bot enviará os avisos diários e selecione o seu **servidor** (`Awell`, `Migal`, `Midranda`, `Cronus` ou `Idhas`).
-3. **Popule a Base:** Digite `/configdrops` para injetar a enciclopédia oficial do BPT.
-4. **Comece a Usar:** Peça para os membros usarem `/registrar` para entrarem no Hall da Fama do clã e use `/timeboss` para lançar o painel interativo!
+3. **Popule a Base de Drops:** Digite `/configdrops` para injetar a enciclopédia oficial de itens e monstros do BPT.
+4. **Agende a Chaos Arena (Opcional):** Use `/configchaos` para definir o canal e quantos minutos antes das 21h00 o bot fará a convocação com `@everyone` toda sexta-feira.
+5. **Comece a Usar:** Peça para os membros usarem `/registrar` para entrarem no Hall da Fama do clã e use `/timeboss` para lançar o painel interativo!
 
 ---
 
@@ -64,9 +66,10 @@ Basta digitar `/` no chat do seu Discord e escolher o comando desejado.
 
 ### ⚙️ 3. Comandos da Administração (Apenas Líderes)
 * **`/config`** `canal` `servidor` `level_cap`: Estabelece a configuração do bot no servidor e sincroniza a base de Bosses.
+* **`/configchaos`** `canal` `antecedencia` `ativo`: Configura o canal e a antecedência (1 a 180 min antes das 21h00) do chamado semanal da **Chaos Arena** às sextas-feiras com `@everyone`.
 * **`/levelcap`** `cap`: Atualiza rapidamente o Nível Máximo do servidor para recalibrar as barras de progresso do clã.
 * **`/configdrops`**: Injeta e popula a base de dados interna do bot com o bestiário e itens originais do Priston Tale (Módulo Enciclopédia).
-* **`/status`** e **`/ajuda`**: Exibe diagnóstico de servidor, Ping da API e manual de comandos rápidos.
+* **`/status`** e **`/ajuda`**: Exibe diagnóstico do servidor, status da Chaos Arena, Ping da API e manual de comandos rápidos.
 
 ---
 
