@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="fromacedo">
   <title>PristonForge | O Assistente de Elite para Priston Tale</title>
-  <link rel="icon" type="image/jpg" href="./imagem/logo.jpg">
+  <link rel="icon" type="image/jpg" href="./logo.jpg">
   
   <!-- Bootstrap 5.3 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -230,7 +230,7 @@
   <nav class="navbar navbar-expand-lg sticky-top shadow-lg" data-aos="fade-down" data-aos-duration="800">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-3 brand-font fw-bold text-white" href="#">
-        <img src="./imagem/logo.jpg" alt="Logo" width="42" height="42" class="rounded-circle border border-warning shadow">
+        <img src="./logo.jpg" alt="Logo" width="42" height="42" class="rounded-circle border border-warning shadow">
         PRISTON<span class="text-gradient">FORGE</span>
       </a>
       <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -259,7 +259,7 @@
   <!-- Hero Section -->
   <section class="hero-section text-center">
     <div class="container" data-aos="zoom-in" data-aos-duration="1200">
-      <img src="./imagem/logo.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
+      <img src="./logo.jpg" alt="PristonForge Avatar" class="bot-avatar mb-4">
       <div class="mb-4" data-aos="fade-up" data-aos-delay="300">
         <span class="badge rounded-pill bg-dark text-warning border border-warning px-4 py-2 fs-6 shadow-lg">
           <i class="bi bi-shield-check me-2"></i> Sincronizado com a Wiki Oficial BPT
@@ -268,7 +268,7 @@
       <h1 class="display-2 fw-bold mb-3 hero-title">PRISTON<span class="text-gradient">FORGE</span></h1>
       <div class="rpg-divider"></div>
       <p class="lead text-light mx-auto mb-5" style="max-width: 750px; font-weight: 300; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
-        O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, explore espólios épicos, convoque o clã para a Chaos Arena e domine o tempo exato de todos os Bosses.
+        O assistente definitivo de Discord para clãs de <strong>Priston Tale</strong>. Acompanhe o nível da sua guilda, consulte Sheltoms de Aging (+1 ao +25), explore espólios épicos, convoque o clã para a Chaos Arena e domine o tempo exato de todos os Bosses.
       </p>
       
       <div class="d-flex justify-content-center gap-4 flex-wrap mb-5" data-aos="fade-up" data-aos-delay="600">
@@ -334,7 +334,7 @@
             <p class="text-secondary small mb-0">Crie competitividade saudável! Ranking interno automático com o Top 10 dos membros mais fortes do clã.</p>
           </div>
         </div>
-        <!-- Card 4 (Atualizado: Boss DM + Chaos Arena) -->
+        <!-- Card 4 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="glass-card">
             <div class="feature-icon"><i class="bi bi-bell-fill"></i></div>
@@ -342,12 +342,12 @@
             <p class="text-secondary small mb-0">Alarmes privados (DM) 10 min antes do seu Boss favorito e convocação automática com <code>@everyone</code> às sextas antes da Chaos Arena (21h).</p>
           </div>
         </div>
-        <!-- Card 5 -->
+        <!-- Card 5 (Atualizado: Drops + Sheltoms de Aging) -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
           <div class="glass-card">
-            <div class="feature-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
-            <h4 class="fw-bold text-white mb-3">Enciclopédia de Drops</h4>
-            <p class="text-secondary small mb-0">Base de dados revisada por Tiers (Endgame) com itens Abissais, Verthex e espólios de Bosses, pesquisável direto no chat.</p>
+            <div class="feature-icon"><i class="bi bi-gem"></i></div>
+            <h4 class="fw-bold text-white mb-3">Drops &amp; Forja de Aging</h4>
+            <p class="text-secondary small mb-0">Enciclopédia de drops do Endgame (Abissais e Verthex) e tabela interativa de Sheltoms necessários do Aging +1 ao +25.</p>
           </div>
         </div>
         <!-- Card 6 -->
@@ -410,10 +410,10 @@
         </div>
       </div>
 
-      <!-- Categoria 2 -->
+      <!-- Categoria 2 (Atualizada com /sheltons) -->
       <div class="mb-5" data-aos="fade-up">
         <h3 class="mb-4 d-flex align-items-center gap-3" style="color: var(--forge-primary); text-shadow: 0 0 15px rgba(255,69,0,0.3);">
-          <i class="bi bi-fire fs-2"></i> 2. CAÇADA E BOSSES
+          <i class="bi bi-fire fs-2"></i> 2. CAÇADA, BOSSES &amp; FORJA
         </h3>
 
         <div class="command-card">
@@ -439,9 +439,17 @@
           </div>
           <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Consulta o bestiário e a enciclopédia de itens do Endgame com autocompletar inteligente.</p>
         </div>
+
+        <div class="command-card">
+          <div class="mb-3">
+            <span class="cmd-badge">/sheltons</span> 
+            <span class="param-badge">nivel: [1 a 25]</span>
+          </div>
+          <p class="mb-1 text-light fs-5"><strong>O que faz:</strong> Exibe a lista exata de <strong>Sheltoms</strong> (Fadeo a Veritas), chance de falha, nível requerido e custo adicional para qualquer Aging do +1 ao +25 — com botões para avançar e voltar níveis.</p>
+        </div>
       </div>
 
-      <!-- Categoria 3 (Atualizada com /configchaos) -->
+      <!-- Categoria 3 -->
       <div class="mb-5" data-aos="fade-up">
         <h3 class="mb-4 d-flex align-items-center gap-3 text-info" style="text-shadow: 0 0 15px rgba(0, 180, 216, 0.3);">
           <i class="bi bi-gear-wide-connected fs-2"></i> 3. ADMINISTRAÇÃO (Líderes)
@@ -499,6 +507,7 @@
             <span class="discord-btn justify-content-center py-2"><i class="bi bi-arrow-repeat fs-5"></i> Atualizar Seu Personagem</span>
             <span class="discord-btn discord-btn-secondary justify-content-center py-2"><i class="bi bi-trophy fs-5"></i> Atualizar Painel Local do Clã</span>
             <span class="discord-btn justify-content-center py-2"><i class="bi bi-alarm fs-5"></i> Cartão: Boss da Hora Exata</span>
+            <span class="discord-btn discord-btn-secondary justify-content-center py-2"><i class="bi bi-gem fs-5"></i> Navegar Níveis de Aging (+1 ao +25)</span>
           </div>
         </div>
       </div>
@@ -594,7 +603,7 @@
   <!-- Rodapé -->
   <footer class="text-center">
     <div class="container">
-      <img src="./imagem/logo.jpg" alt="Logo" width="64" height="64" class="rounded-circle mb-4 border border-warning shadow-lg" style="animation: forgePulse 4s infinite;">
+      <img src="./logo.jpg" alt="Logo" width="64" height="64" class="rounded-circle mb-4 border border-warning shadow-lg" style="animation: forgePulse 4s infinite;">
       <h3 class="brand-font fw-bold mb-2">PRISTON<span class="text-gradient">FORGE</span></h3>
       <p class="text-secondary mb-3">Desenvolvido com Node.js, Discord.js, Puppeteer e MongoDB.</p>
       <p class="text-light fs-5 mb-4">Arquitetado por <strong class="text-warning">fromacedo</strong></p>
