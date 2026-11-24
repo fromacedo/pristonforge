@@ -10,7 +10,7 @@
 
   <p align="center">
     O assistente definitivo de Discord para clãs e jogadores de <strong>Priston Tale Brasil</strong>.<br>
-    Acompanhe o nível da sua guilda, explore espólios épicos, convoque o clã para a Chaos Arena e domine o tempo exato de todos os Bosses com precisão cirúrgica.
+    Acompanhe o nível da sua guilda, consulte Sheltoms de Aging (+1 ao +25), explore espólios épicos, convoque o clã para a Chaos Arena e domine o tempo exato de todos os Bosses com precisão cirúrgica.
   </p>
 
   [![Adicionar ao Discord](https://img.shields.io/badge/➕_Adicionar_ao_Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/oauth2/authorize?client_id=1493293459514331326&permissions=8&integration_type=0&scope=bot+applications.commands)
@@ -24,6 +24,7 @@
 O **PristonForge** opera em nuvem com proteção inteligente e barreira administrativa backend para entregar informações precisas diretamente no servidor do seu clã:
 
 * 🎯 **Radar de Bosses:** Monitoramento dos minutos dinâmicos (`Alfa` a `Zeta`) combinados com a tabela oficial de Bosses Especiais da Zenit.
+* 💎 **Guia de Aging & Sheltoms:** Consulte instantaneamente os Sheltoms necessários (Fadeo a Veritas), chance de falha, nível requerido e custo adicional de qualquer Aging do **+1 ao +25** com botões de navegação.
 * ⚔️ **Alerta Semanal da Chaos Arena:** Convocação automática toda sexta-feira com menção `@everyone` (antecedência configurável antes das 21h00), trazendo as regras oficiais dos 9 rounds e a recompensa da Caixa da Glória.
 * 📖 **Enciclopédia de Drops:** Consulte espólios, localizações e atributos de monstros e itens raros (Endgame revisado por Tiers: Abissal, Verthex e acessórios de Boss) direto no chat com autocompletar inteligente.
 * 🪪 **Carteira de Aventureiro:** Vincule seu personagem uma única vez e exiba seu Nível, Classe, Rank Geral, Tier e barra de progresso rumo ao Level Cap.
@@ -40,7 +41,7 @@ Qualquer líder ou administrador de Discord pode adicionar e ativar o **PristonF
 2. **Configure o Radar:** No seu Discord, digite `/config`, escolha o **canal de texto** onde o bot enviará os avisos diários e selecione o seu **servidor** (`Awell`, `Migal`, `Midranda`, `Cronus` ou `Idhas`).
 3. **Popule a Base de Drops:** Digite `/configdrops` para injetar a enciclopédia oficial de itens e monstros do BPT.
 4. **Agende a Chaos Arena (Opcional):** Use `/configchaos` para definir o canal e quantos minutos antes das 21h00 o bot fará a convocação com `@everyone` toda sexta-feira.
-5. **Comece a Usar:** Peça para os membros usarem `/registrar` para entrarem no Hall da Fama do clã e use `/timeboss` para lançar o painel interativo!
+5. **Comece a Usar:** Peça para os membros usarem `/registrar` para entrarem no Hall da Fama do clã, `/sheltons` antes de dar Aging e `/timeboss` para lançar o painel interativo!
 
 ---
 
@@ -56,11 +57,12 @@ Basta digitar `/` no chat do seu Discord e escolher o comando desejado.
 
 ---
 
-### ⚔️ 2. Caçada e Bosses
+### ⚔️ 2. Caçada, Bosses & Forja
 * **`/bossatual`**: Lista todos os Bosses Especiais previstos para nascer na **hora atual** exata.
 * **`/timeboss`**: Envia no canal oficial o painel com os minutos dinâmicos (Alfa a Zeta) do dia, equipado com botão interativo.
 * **`/avisar`** `boss`: Ativa um despertador pessoal para o Boss escolhido (via DM 10 min antes).
 * **`/drop`** `item` ou `monstro`: Abre a enciclopédia interativa (autocompletar ativado) para descobrir espólios raros, itens Abissais, Verthex, etc.
+* **`/sheltons`** `nivel`: Retorna a lista oficial de Sheltoms (Fadeo a Veritas), chance de falha, nível requerido e custo adicional para o nível de Aging escolhido (`1` a `25`).
 
 ---
 
@@ -80,6 +82,7 @@ Você não precisa digitar comandos repetidamente! Os painéis gerados pelo **Pr
 * **`🔄 Atualizar Dados`** *(no `/perfil`)*: Recalcula seu nível e posição no ranking oficial.
 * **`🔄 Atualizar Painel (Local)`** *(no `/topclan`)*: Atualiza a tabela do Top 10 instantaneamente com os últimos níveis registrados pelos membros.
 * **`⏰ Ver Boss da Hora`** *(no `/timeboss` e no post automático diário)*: Exibe de forma privada para você quais Bosses nascem naquela hora exata, sem poluir o chat do clã!
+* **`◀️ / ▶️ Aging Anterior e Próximo`** *(no `/sheltons`)*: Navega diretamente pelos níveis de Aging do +1 ao +25 na mesma mensagem.
 
 ---
 
